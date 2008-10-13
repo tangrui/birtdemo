@@ -1,0 +1,13 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/539-birt-dynamically-choose-css-file/
+
+Report Design example using multiple CSS files
+
+Simple BIRT report design that uses parameters and scripting to choose which CSS style sheet to import. 
+
+The work happens in the initialize() method like below:
+
+   dh = reportContext.getDesignHandle();
+   cssh = dh.openCssStyleSheet(params["cssParam"].value);
+   dh.addCss(cssh);
+
+This example was created with BIRT 2.3.0
