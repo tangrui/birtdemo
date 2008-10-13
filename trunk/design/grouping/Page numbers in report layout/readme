@@ -1,0 +1,9 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/491-page-numbers-in-report-layout-/
+
+Report design showing a way to count pages per group.
+
+This report shows how to display page n of m for each group in a report.  This same approach could probably be used to display page n of m for the entire report in the report layout as well by just using an interval based group.
+
+In this example, the query was used to sort the data by the column that was going to be grouped, in this case country.  Then, a computed column was created to keep a count of the items in each group.  This column is important for grouping.  In the table in the layout, a group is made for the Country.  Inside this group, another group is made based off an interval, which is where the computed column comes in.  I'm not sure why, but the base interval needs to be set to 1 more than the interval you set, or the first page of the group has 1 less record than the rest.  Next, I made an aggregation in the group1 footer that is the sum of all the records in the group to be used for the group page total.  Finally, I used scripting in a dynamic text element in the group 2 footer to figure the page number, the total group pages, and to display the page n of m info for each group.
+
+This report was created in BIRT 2.3
