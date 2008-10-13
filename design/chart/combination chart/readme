@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/517-sample-birt-report-with-combination-chart/
+
+This example demonstrates how a Combination Chart can be created within BIRT. In addition this example also demonstrates how to add drill to details, using internal bookmarks and the Chart Interactivity Editor.
+
+The combination chart presents the outstanding debt for the top 5 customers in Bar Chart format with a Line series representing each customer¡¯s credit limit superimposed. The bars within the chart are then linked to order details for each customer.
+
+The attached example was built using BIRT 2.2.2
