@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/530-sample-birt-sub-report-example/
+
+Example the demonstrates building a report that uses nested tables.
+
+This example demonstrates building a report that uses nested tables. The query that is bound to the inner table is parameterized to return order details for a given order number in the outer table. This example also illustrates referencing outer table columns within a nested table. This allows BIRT reports to be designed with master detail information contained within the same report. As the outer table is processing its rows the inner table query is re-executed based on information from the outer table.
+
+This report was designed in BIRT 2.2.2.
