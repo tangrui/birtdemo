@@ -1,0 +1,5 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/523-add-onmouseover-event-to-a-report-design/
+
+his example demonstrates adding mouse over events
+
+This example adds a script tag in a text element to handle mouse over and mouse out events.  The first column uses a text element to display order number and adds the mouse events.  In addition the text element's bookmark property is used by the functions in the first text element.
