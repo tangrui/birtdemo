@@ -1,0 +1,5 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/514-sample-birt-report-with-cascaded-parameter-group/
+
+A cascaded parameter group allows a group of parameters to be interlinked, where selecting a value for the first parameter affects the choices available in the subsequent parameters. Cascaded parameters can be tied to one or more Data Sets. The Data Sets populate each level of the cascade. Combined with Data Set parameters this offers very good flexibility for culling of returned data for a report.
+
+The example was built using BIRT 2.2.2
