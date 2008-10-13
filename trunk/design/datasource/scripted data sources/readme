@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/544-sample-birt-scripted-data-source-example/
+
+This is a simple report that demonstrates using scripted data sources.  In this report a simple java class called "SimpleClass" is created to be used as the dataSource.  Scripting on the dataSet is then used to bring in and separate the data into the fields "Customer Name", "Favorite Model", and "Color Choice".
+
+To view the example in a live reporting environment, use the following link:
+
+This report was designed in BIRT 2.2.2.
