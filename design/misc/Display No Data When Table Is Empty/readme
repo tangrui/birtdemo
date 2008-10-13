@@ -1,0 +1,9 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/522-birt-display-quot-no-data-quot-when-table-is-empty-example/
+
+xample report demonstrating how to report that no data was returned by the query.
+
+This example demonstrates one way to hide a table and to report that no data is present if the query returns no data.  A computed column is added to the dataSet that counts the dataSet rows.  In the visibility expression for the table, the table is hidden if this is 'null'.  In the script for the OnCreate method of the detail row, a variable that was created in the Initialize method of the report is incremented if a row is created.  A label is placed below the table with an expression stating that the dataSet is empty.  Scripting is done in the OnCreate method of the label to check whether there were any detail rows created.  If there were, the label text is set to "".
+
+Instead of the label idea used in this report design, you could also use a dynamic text box and bind it to the table or dataSet and check the value of the computed column to decide what to display.
+
+This report was created in BIRT 2.3.0
