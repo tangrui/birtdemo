@@ -1,0 +1,34 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/511-dynamic-parameter-driven-chart-marker-lines/
+
+Sample BIRT Report that uses Parameters to dynamically assign values to chart marker lines
+
+This sample BIRT report contains a chart that has dynamic marker lines applied to it based on report parameter values.  The report uses scripting in the chart's beforeGeneration method to create marker lines based upon the parameters.
+
+This example was built using BIRT 2.2.2
+
+The script used in the beforeGeneration event of the chart is as follows:
+
+function beforeGeneration(chart, icsc){
+   importPackage(Packages.org.eclipse.birt.chart.model.component.impl);
+   importPackage(Packages.org.eclipse.birt.chart.model.data.impl);
+   importPackage(Packages.org.eclipse.birt.chart.model.attribute);
+   importPackage(Packages.org.eclipse.birt.chart.model.attribute.impl);
+
+   var chart = icsc.getChartInstance();
+   var yAxis = chart.getAxes().get(0).getAssociatedAxes().get(0);
+
+   var topValue = icsc.getExternalContext().getScriptable().getParameterValue("topMarkerValue");
+   var bottomValue = icsc.getExternalContext().getScriptable().getParameterValue("bottomMarkerValue");
+
+   top_ml = MarkerLineImpl.create(yAxis, NumberDataElementImpl.create(topValue));
+   top_ml.getLabel().getCaption().setValue("Top marker line set at " + topValue);
+   top_ml.getLineAttributes().getColor().set(0,200,0);
+   top_ml.getLineAttributes().setStyle(LineStyle.SOLID_LITERAL);
+   top_ml.getLineAttributes().setThickness(2);
+
+   bottom_ml = MarkerLineImpl.create(yAxis, NumberDataElementImpl.create(bottomValue));
+   bottom_ml.getLabel().getCaption().setValue("Bottom marker line set at " + bottomValue);
+   bottom_ml.getLineAttributes().getColor().set(255,0,0);
+   bottom_ml.getLineAttributes().setStyle(LineStyle.SOLID_LITERAL);
+   bottom_ml.getLineAttributes().setThickness(2);
+}
