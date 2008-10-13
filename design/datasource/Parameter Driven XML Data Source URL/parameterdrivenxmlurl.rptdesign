@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.2.v20071218-1951 Build &lt;2.2.2.v20071218-0630></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <text-property name="displayName">Blank Report</text-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <parameters>
+        <scalar-parameter name="TickerSymbol" id="59">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <text-property name="promptText">Please enter a company ticker symbol:</text-property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">ACTU</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.enablement.oda.xml" name="CompanyNewsRSS" id="6">
+            <method name="beforeOpen"><![CDATA[filelist = this.getExtensionProperty("FILELIST");
+filelisturl = filelist.substring(0,filelist.indexOf("=")+1);
+this.setExtensionProperty("FILELIST", filelisturl + params["TickerSymbol"]);]]></method>
+            <property name="FILELIST">http://finance.yahoo.com/rss/headline?s=actu</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.enablement.oda.xml.dataSet" name="News" id="19">
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">title</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">link</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">pubDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">CompanyNewsRSS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">title</property>
+                    <property name="nativeName">title</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">link</property>
+                    <property name="nativeName">link</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">description</property>
+                    <property name="nativeName">description</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">pubDate</property>
+                    <property name="nativeName">pubDate</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <property name="queryText">table0#-TNAME-#table0#:#[/rss/channel/item]#:#{title;STRING;/title},{link;STRING;/link},{description;STRING;/description},{pubDate;STRING;/pubDate}</property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>MAX_ROW</name>
+                    <value>-1</value>
+                </ex-property>
+                <ex-property>
+                    <name>XML_FILE</name>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="TitleSytle" id="41">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">14pt</property>
+            <property name="color">#3165C6</property>
+        </style>
+        <style name="image" id="55">
+            <property name="borderBottomColor">#FFFFFF</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">0px</property>
+            <property name="borderLeftColor">#FFFFFF</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">0px</property>
+            <property name="borderRightColor">#FFFFFF</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">0px</property>
+            <property name="borderTopColor">#FFFFFF</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">0px</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="20">
+            <property name="width">100%</property>
+            <property name="dataSet">News</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">title</property>
+                    <expression name="expression">dataSetRow["title"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">link</property>
+                    <expression name="expression">dataSetRow["link"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">description</property>
+                    <expression name="expression">dataSetRow["description"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pubDate</property>
+                    <expression name="expression">dataSetRow["pubDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="33"/>
+            <header>
+                <row id="21">
+                    <cell id="22">
+                        <property name="backgroundColor">#FFFFC6</property>
+                        <text id="62">
+                            <property name="fontWeight">normal</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingBottom">10pt</property>
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<div style="text-align: center; font-family: verdana,arial; font-size: 24">Parameter Driven XML Data Source</div><BR/>
+<div style="text-align: left; font-family: verdana,arial; font-size: 14">This sample report show how you can pass parameters to a URL which returns XML for a BIRT data source.  To see how the parameters are passed to the URL, check the script tab for the CompanyNewsRSS Data Source</div>]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+                <row id="65">
+                    <property name="height">0.2395833333in</property>
+                    <cell id="66"/>
+                </row>
+            </header>
+            <detail>
+                <row id="23">
+                    <cell id="24">
+                        <property name="borderBottomColor">#3165C6</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <text id="56">
+                            <property name="fontFamily">"Verdana"</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="color">#3165C6</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<a style="text-decoration: none" href="<VALUE-OF>row["link"]</VALUE-OF>"><VALUE-OF>row["title"]</VALUE-OF></a>]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+                <row id="39">
+                    <property name="height">0.2708333333in</property>
+                    <cell id="40">
+                        <data id="47">
+                            <property name="fontFamily">"Verdana"</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="color">gray</property>
+                            <property name="display">inline</property>
+                            <property name="resultSetColumn">pubDate</property>
+                        </data>
+                        <image id="54">
+                            <property name="display">inline</property>
+                            <property name="source">embed</property>
+                            <property name="imageName">feedarrowtrans.png</property>
+                            <structure name="action">
+                                <property name="linkType">hyperlink</property>
+                                <expression name="uri">row["link"]</expression>
+                                <property name="targetWindow">_blank</property>
+                            </structure>
+                        </image>
+                    </cell>
+                </row>
+                <row id="57">
+                    <property name="height">0.34375in</property>
+                    <cell id="58"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="31">
+                    <cell id="32"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">feedarrowtrans.png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+                YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAASpJREFUOE9j/P//
+                PwNJ4O/fv0A9yOA7EkCTApmOpgGo+PnnB+3XAzqvB7378hrIRdODRcPWR3PSThkCUck5l7dfXqLpwaLh
+                zrvrsUesIg6ZAFHmcY+nnx4h64FqQHY3hB1z0D5wnwkQpR31fvbpCVwPSANERcnJpNoz2Q1n87ov1ky9
+                2h5/0NN7pzEEJRzyfvDuNkQPVIPrFmP8KHCnPYoGh3XG+JHvVgcUDUBO1t7k0oP5ZYcKm4/V9Z3p9N/o
+                brPCGIJCNvs+fgf1OnZPv/zw0mmJnfk8IyDyW+X18sNzFE+jRfON5zespljpdOsAkdsst0dvsAUrXA/Q
+                pKm7p6mWqAKRTbPt0zeIAIWowRJxtx7dci53dq10ffQSxWzsGoCiBBIfZnrELwIApAFNcLFN9KwAAAAA
+                SUVORK5CYII=
+            </property>
+        </structure>
+    </list-property>
+</report>

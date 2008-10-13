@@ -1,0 +1,11 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/533-parameter-driven-xml-data-source-url/
+
+How to pass a parameter to an XML Data Source to be included in the Data Source URL.
+
+Sometimes when using using an XML Data Source from a URL, you need to pass in a parameter which is used in the URL.  Take for example an RSS Feed that gives you top news stories for a company based on their ticker symbol.  The attached example uses a Report Parameter to gather the ticker symbol and updates the data source URL in the data source's beforeOpen event using the following code:
+
+filelist = this.getExtensionProperty("FILELIST");
+filelisturl = filelist.substring(0,filelist.indexOf("=")+1);
+this.setExtensionProperty("FILELIST", filelisturl + params["TickerSymbol"]);
+
+This report was designed in BIRT 2.2.2.
