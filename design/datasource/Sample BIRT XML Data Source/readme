@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/531-sample-birt-xml-data-source-example/
+
+Example that demonstrates the use of XML data sources.
+
+A simple report that demonstrates using XML data sources.  In this report, the Eclipse.org news feed is brought in as the dataSource.  The dataSet editor is then used to set up the table and column mapping for the data.
+
+This report was designed in BIRT 2.2.2.
