@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/462-using-deapi-to-modify-birt-report-design/
+
+A simple example that replaces a data set element with an image element using the BIRT Design Engine API.
+
+A reporting application typically generates a report from a report design. Sometimes business logic requires programmatically changing an existing report design before generating the report.
+Here is a simple example that replaces a data set element with an image element using the BIRT Design Engine API to modify the BIRT Design.
