@@ -1,0 +1,9 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/543-sample-birt-group-separator-example/
+
+Example that demonstrates adding a separator every 3 rows within a group.
+
+This example illustrates adding a separator every 3 rows within a group.  Scripting is done on the detail row of the table to increment a counter.  When the 4th line of a group is reached, the counter resets and counts that line as the first of the new section. This count is also reset on a page break.  A visibility rule is set on the "breaker" line to only display when the counter reaches 3 detail rows.
+
+To view the example in a live reporting environment, use the following link:
+
+This report was designed in BIRT 2.2.2.
