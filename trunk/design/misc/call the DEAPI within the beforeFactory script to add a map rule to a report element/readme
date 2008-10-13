@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/542-sample-birt-dynamic-map-rule-example/
+
+Example illustrating how to call the DEAPI within the beforeFactory script to add a map rule to a report element.
+
+This example illustrates calling the Design Engine API within the beforeFactory script to add a map rule to a report element.
+
+This report was designed in BIRT 2.2.2.
