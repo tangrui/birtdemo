@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/529-sample-birt-report-elements-example/
+
+Example that demonstrates using label, text, dynamic text, data, and image elements within a report design.
+
+This example demonstrates using Label, Text, Dynamic Text, Data, and Image elements within a report design. Some key features and differences between the elements are also identified. This example also illustrates retrieving BLOB and CLOB data from a datasource.
+
+This report was designed in BIRT 2.2.2.
