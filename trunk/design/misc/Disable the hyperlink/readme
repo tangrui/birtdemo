@@ -1,0 +1,5 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/540-little-trick-disable-the-hyperlink-according-to-the-output-format/
+
+Disable the hyperlink action (URI, Internal bookmark and drill through) according to the output format like pdf, html, xls, doc and etc.
+
+This is a trick for user to hide or disable the hyperlink action according to the output format. In this example report we disable the label's URI hyperlink when the output format is xls. First in label's onRender get the output format by reportContext.getOutputFormat(), if it is equal to xls we set this label's action to null. The expected result is when exporting or preview the report in xls, the hyperlink should be disabled.
