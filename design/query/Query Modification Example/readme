@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/527-sample-birt-query-modification-example/
+
+Example that demonstrates how to modify a JDBC query using property binding or script.
+
+This example demonstrates how to modify a JDBC query using Property Binding or Script. Property Binding is a feature within BIRT that allows run time modification of Data Source and Data Set public properties. This can be useful to add context sensitive information to either element. As an example, the where clause can be modified to retrieve the user name from session or the database URL can be switched between development and production based on a report parameter.
+
+This report was designed in BIRT 2.2.2.
