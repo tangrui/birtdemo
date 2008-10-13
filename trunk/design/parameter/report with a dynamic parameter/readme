@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/525-sample-birt-report-with-a-dynamic-parameter/
+
+This example illustrates linking a report parameter to a data set parameter.
+
+BIRT provides the capability to build queries and define filter conditions prior to running the query. The example here uses a separate dataset (OrderNumber) to present the user with a list of dynamic parameter values to choose from in a combo box. The selected value is used as a filter condition inside a SQL query that will fetch only subset of data from the database.
+
+This report was designed in BIRT 2.2.2.
