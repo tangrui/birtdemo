@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/380-modifying-a-chart-in-a-report-using-client-side-script-using-the-dom/
+
+Modifying a Chart in a report using client side script using the DOM
+This report uses Text elements to show check boxes and a refresh button.  When the report is executed, two charts are rendered.  Un checking the boxes and clicking the refresh button will set the display property to none.  If the box is checked the the chart display property will be set to block.  This example uses the DOM, so the report does not need to rerun.
