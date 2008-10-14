@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.2.r222_v20071226 Build &lt;2.2.2.v20080111-0630></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <method name="initialize"><![CDATA[importPackage (Packages.java.io);
+fos = new java.io.FileOutputStream ("C:\\TagCloud.txt");
+pw = new java.io.PrintWriter(fos);
+pw.println("EventsSequence.initialize");
+
+city = new Array(100);
+revenue = new Array(100);
+minRevenue = 99999999;
+maxRevenue = 0;
+cnt = 0;
+grandTotal = 0;]]></method>
+    <method name="afterFactory"><![CDATA[pw.close();]]></method>
+    <text-property name="displayName">Blank Report</text-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="6">
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="7">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CITY</property>
+                    <property name="displayName">CITY</property>
+                </structure>
+                <structure>
+                    <property name="columnName">REVENUE</property>
+                    <property name="displayName">REVENUE</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CITY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">REVENUE</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="onFetch"><![CDATA[c = row["CITY"];
+r = row["REVENUE"];
+
+minRevenue = r < minRevenue ? r : minRevenue;
+maxRevenue = r > maxRevenue ? r : maxRevenue;
+
+city[cnt] = c;
+revenue[cnt] = r;
+//pw.println(city[cnt]);
+cnt++;
+grandTotal = grandTotal + r;]]></method>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CITY</property>
+                    <property name="nativeName">CITY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">REVENUE</property>
+                    <property name="nativeName">REVENUE</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select C.CITY
+, sum(OD.QUANTITYORDERED * OD.PRICEEACH) as Revenue
+from CLASSICMODELS.ORDERDETAILS OD
+, CLASSICMODELS.ORDERS O
+, CLASSICMODELS.CUSTOMERS C
+where O.ORDERNUMBER = OD.ORDERNUMBER
+and O.CUSTOMERNUMBER = C.CUSTOMERNUMBER
+and C.COUNTRY IN ('USA','France','Canada','Germany','Spain')
+group by C.CITY</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="LI" id="26">
+            <property name="display">inline</property>
+        </style>
+        <style name="smallest" id="27">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">1em</property>
+        </style>
+        <style name="small" id="28">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">1.3em</property>
+        </style>
+        <style name="normal" id="29">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">1.6em</property>
+        </style>
+        <style name="large" id="30">
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">1.9em</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <table id="10">
+            <property name="width">4in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CITY</property>
+                    <expression name="expression">dataSetRow["CITY"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">REVENUE</property>
+                    <expression name="expression">dataSetRow["REVENUE"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <column id="23"/>
+            <header>
+                <row id="11">
+                    <cell id="12">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">1</property>
+                        <property name="textAlign">left</property>
+                        <text id="60">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<script>
+function doIt(city) {
+	alert(city);
+}
+function hover(city) {
+	var bgColor = "#e5edfc";
+	obj = $(city);
+	c = obj.style.background;
+//	alert(c);
+	if (c == bgColor)
+		obj.style.background = "transparent";
+	else
+		obj.style.background = bgColor;
+}
+function hideBlock(div) {
+//alert(div);
+	var elem = document.getElementById(div);
+	elem.style.display = "none";
+	
+}
+</script>
+]]></text-property>
+                        </text>
+                        <text id="9">
+                            <property name="paddingTop">1pt</property>
+                            <method name="onCreate"><![CDATA[distribution = (maxRevenue - minRevenue) / 5;
+avg = grandTotal / cnt;
+r = 0;
+
+LIStyle = "display:inline; font-family:Arial;padding-right:2px;padding-left:2px;font-weight:100;";
+AStyle = "text-decoration:none;cursor:pointer;color:#0000FF;white-space:nowrap;";
+
+txt = "";
+txt = txt + "<ol>\r\n";
+
+// Use average instead of distribution
+distribution = avg;
+for (i = 0; i < cnt; i++) {
+	r = revenue[i];
+	
+	if (r < distribution) {
+		LIStyle = LIStyle + "font-size:10pt;";
+	}
+	else if (r < (distribution * 2)) {
+		LIStyle = LIStyle + "font-size:12pt;";
+	}
+	else if (r < (distribution * 3)) {
+		LIStyle = LIStyle + "font-size:14pt;";
+	}
+	else if (r < (distribution * 4)) {
+		LIStyle = LIStyle + "font-size:18pt;";
+	}
+	else {
+		LIStyle = LIStyle + "font-size:20pt;";
+	}
+	
+	txt = txt + "<li style='" + LIStyle + "'>";
+	txt = txt + "<a id='" + city[i] + "' style='" + AStyle + "' onClick='javascript:doIt(\"" + city[i] + "\");' " + "onMouseover='javascript:hover(\"" + city[i] + "\");'" + "onMouseout='javascript:hover(\"" + city[i] + "\");' >";
+	txt = txt + city[i] + "</li>" + "\r\n";
+}
+
+txt = txt + "</ol>"
+//pw.println(txt);
+this.text = txt;]]></method>
+                            <property name="contentType">html</property>
+                        </text>
+                    </cell>
+                </row>
+            </header>
+            <footer>
+                <row id="38">
+                    <cell id="39"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
