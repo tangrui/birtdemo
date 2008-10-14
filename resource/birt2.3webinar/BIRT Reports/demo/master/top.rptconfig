@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.16" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__growingpercent_369_0</property>
+            <property name="value">0.1</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__stablepercent_370_1</property>
+            <property name="value">0.13</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__explode_387_2</property>
+            <property name="value">Motorcycles</property>
+        </structure>
+        <structure>
+            <property name="name">growingpercent_369_3</property>
+            <property name="value">0.1</property>
+        </structure>
+        <structure>
+            <property name="name">growingpercent_369_type_</property>
+            <property name="value">float</property>
+        </structure>
+        <structure>
+            <property name="name">stablepercent_370_4</property>
+            <property name="value">0.13</property>
+        </structure>
+        <structure>
+            <property name="name">stablepercent_370_type_</property>
+            <property name="value">float</property>
+        </structure>
+        <structure>
+            <property name="name">explode_387_5</property>
+            <property name="value">Motorcycles</property>
+        </structure>
+        <structure>
+            <property name="name">explode_387_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">explode_387_expr_</property>
+            <property name="value">dataSetRow["PRODUCTLINE"]</property>
+        </structure>
+    </list-property>
+</report>
