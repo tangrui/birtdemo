@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/379-modifying-a-chart-in-a-report-using-client-side-script/
+
+Modifying a Chart in a report using client side script
+This report uses Text elements to show check boxes and a refresh button.  When the report is executed, the specific chart series selected are rendered.  The Checkboxes that are not selected are removed from the chart model in the beforeGeneration event.
