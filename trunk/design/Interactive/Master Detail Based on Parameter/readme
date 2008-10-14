@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/362-master-detail-based-on-parameter/
+
+This example drills from a master page to one of two details based on a report parameter.
+See the beforeFactory script to see how the DE API is used in script to add the hyperlink drill through based on the report parameter.
