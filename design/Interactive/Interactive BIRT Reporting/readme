@@ -1,0 +1,5 @@
+http://www.birt-exchange.com/devshare/interactive-reporting/365-interactive-birt-reporting/
+
+Examples that were used in the Interactive BIRT Reporting webinar.
+
+Unzip the file in your project folder. All the examples use Classic Models data base which is included with your BIRT designer. Stock.rptdesign expect "watchlist.csv" to be in C:\temp. Modify the design accordingly to change this location.
