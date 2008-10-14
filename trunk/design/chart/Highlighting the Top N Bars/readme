@@ -1,0 +1,9 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/401-highlighting-the-top-n-bars-in-a-birt-bar-chart/
+
+Example of how to highlight the top few bars in a bar chart.
+
+This report design demonstrated one way to highlight the top few bars in a BIRT bar chart.
+
+In this example, the Classic Cars database is used.  A simple query brings in the Customer Name and their Credit Limit.  Sorting is applied in the query to list the data from highest credit limit to lowest credit limit.  Next, a computed column, called Rank, is created by doing a running count aggregation to associate each credit limit with a rank.  Scripting is then done in the Report:Initialize, the Table Detail Row:OnCreate, and the Chart:OnRender sections using PersistentGlobalVariables to pass the table data to the chart so that it can highlight the bars for the top 3 credit limits.  There are other ways to do this, but this is the route that is explained in this example.
+
+This report was designed using BIRT version 2.2.2.
