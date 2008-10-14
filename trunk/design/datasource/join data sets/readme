@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/361-how-to-join-data-sets/
+
+This example report shows how to join data sets
+Using SQL to join queries can be complicated, to omit this use the data set join mechanism. This example report shows only how to join two data sets, the result can be joined again with another data set. Generally using the data set join mechanism, you can construct multiple join over the data sets.
