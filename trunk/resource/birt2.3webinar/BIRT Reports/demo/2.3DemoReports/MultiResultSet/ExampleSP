@@ -1,0 +1,15 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MyStoredProc`(x INT, y INT)
+BEGIN
+        SELECT
+            x ;
+        SELECT
+            x AS first_param,
+            y AS second_param;
+        SELECT
+            x,
+            y,
+            x + y AS sum_xy,
+            x * y AS prod_xy;
+        SELECT *  FROM t1;
+
+END

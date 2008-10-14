@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/chartengineapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/com.ibm.icu_3.8.1.v20080530.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/coreapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.emf.common_2.4.0.v200806091234.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.emf.ecore_2.4.0.v200806091234.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2_3_0/birt-runtime-2_3_0/ReportEngine/lib/scriptapi.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

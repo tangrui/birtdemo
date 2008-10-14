@@ -1,0 +1,119 @@
+//Product Lines
+SELECT PRODUCTLINE,
+       SUM( PRICEEACH*QUANTITYORDERED ) AS "TOTALREVENUE"
+FROM   CLASSICMODELS.ORDERDETAILS, CLASSICMODELS.PRODUCTS
+WHERE  CLASSICMODELS.ORDERDETAILS.PRODUCTCODE = CLASSICMODELS.PRODUCTS.PRODUCTCODE
+GROUP BY CLASSICMODELS.PRODUCTS.PRODUCTLINE
+
+if( row["TOTALREVENUE"] > 1000000 ){
+"greenarrowxsmall.png";
+}else{
+"redarrowxsmall.png";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Rep Sales by Order Number
+Select customers.CUSTOMERNAME, orderdetails.ordernumber, sum(orderdetails.QUANTITYORDERED* orderdetails.PRICEEACH) as amnt,
+employees.lastname, employees.firstname
+from customers, orders, orderdetails, employees
+where customers.customerNumber=orders.customerNumber and
+orders.orderNumber = orderdetails.orderNumber and
+customers.salesRepEmployeeNumber = employees.employeeNumber
+group by customers.customername, orderdetails.ordernumber, employees.lastname, employees.firstName
+
+
+//Each Reps Total Sales
+Select  sum(orderdetails.QUANTITYORDERED* orderdetails.PRICEEACH) as amnt,
+employees.lastname, employees.firstname
+from customers, orders, orderdetails, employees
+where customers.customerNumber=orders.customerNumber and
+orders.orderNumber = orderdetails.orderNumber and
+customers.salesRepEmployeeNumber = employees.employeeNumber
+group by employees.lastname, employees.firstName
+
+
+//Help Text
+this.helpText = this.getRowData().getColumnValue("a::CUSTOMERNAME") + "\n" +  " Sold by: " + this.getRowData().getColumnValue("b::LASTNAME");
+
+
+
+//Product Lines
+SELECT PRODUCTLINE,
+       SUM( PRICEEACH*QUANTITYORDERED ) AS "TOTALREVENUE"
+FROM   CLASSICMODELS.ORDERDETAILS, CLASSICMODELS.PRODUCTS
+WHERE  CLASSICMODELS.ORDERDETAILS.PRODUCTCODE = CLASSICMODELS.PRODUCTS.PRODUCTCODE
+GROUP BY CLASSICMODELS.PRODUCTS.PRODUCTLINE
+
+
+
+
+//Small Image Script
+var deal = this.getRowData().getColumnValue("a::AMNT");
+var tdeal = this.getRowData().getColumnValue("b::AMNT");
+
+var xyz = deal/tdeal;
+if( xyz > params["stablepercent"].value ){
+this.file = "redarrowxsmall.png";
+rcnt+=1;
+}else if( xyz < params["growingpercent"].value){
+this.file = "greenarrowxsmall.png";
+gcnt+=1;
+}else{
+this.file = "yellowarrowxsmall.png";
+ycnt+=1;
+}
+
+//Large Image Script
+if( gcnt > rcnt ){
+	if( gcnt > ycnt ){
+		this.file = "greenarrowmedium.png";
+	}else{
+		this.file = "yellowarrowmedium.png";
+	}
+}else{
+	if( rcnt > ycnt ){
+		this.file = "redarrowmedium.png";
+	}else{
+		this.file = "yellowarrowmedium.png";
+	}
+}
+
+
+//Pie Explode script
+var cat = this.getParameterValue("explode");
+if( categoryData == cat ) {
+true;
+}else{
+false;
+}
+
+
+//Crosstab Queries
+select *
+from CLASSICMODELS.ORDERDETAILS, CLASSICMODELS.ORDERS
+where CLASSICMODELS.ORDERS.ORDERNUMBER =
+CLASSICMODELS.ORDERDETAILS.ORDERNUMBER
+and
+CLASSICMODELS.ORDERS.STATUS = 'Shipped'
+
+
+select *
+from CLASSICMODELS.PRODUCTS
+
+
