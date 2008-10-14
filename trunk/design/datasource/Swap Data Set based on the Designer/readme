@@ -1,0 +1,17 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/366-swap-data-set-based-on-the-designer/
+
+This example shows how to swap the dataset for a table based on whether you are in the designer.
+
+This is done with code used in the beforeFactory script:
+
+des = reportContext.getHttpServletRequest().getParameter("__designer");
+
+if( des == null || des == "false" ){
+
+mytable = reportContext.getReportRunnable().designHandle.getDesignHandle().findElement("mytable");
+
+mytable.setProperty( "dataSet", "viewer" );
+
+}
+
+Remember to name your table to mytable.
