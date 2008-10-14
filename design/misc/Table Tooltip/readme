@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/443-birt-table-tooltip-examples/
+
+Report Design example showing text tooltips over table data
+
+BIRT Report example showing two different ways to get tooltips on table data. One way is using the Help text property plus scripting to get dynamic tooltips... and the other way shows using the TEXT control to construct your own HTML that includes a title property (which shows up as tooltip in the browser).. This example also includes some tooltips on a chart.
+
+This example was created with BIRT 2.3.0
