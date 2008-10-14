@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.16" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.0.v20080602 Build &lt;2.3.0.v20080604-0630></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
+    <method name="beforeFactory"><![CDATA[importPackage( Packages.org.eclipse.birt.report.model.api );
+
+		reportDesignHandle = reportContext.getReportRunnable().designHandle.getDesignHandle();
+		elementFactory = reportDesignHandle.getElementFactory()
+		dataSetHandle = elementFactory.newScriptDataSet( "Data Set" );
+		dataSetHandle.setDataSource( "Data Source" );
+
+		dataSetHandle.setOpen( "i=0;" );
+
+		dataSetHandle.setFetch( "if ( i < 4 ){"
+				+ "row[\"Month\"] = 1;"
+				+ "row[\"Product\"] = 'My Product';"
+				+ "row[\"Amount\"] = i;"
+				+ "i++;"
+				+ "return true;}" + "else return false;" );
+
+		// Set computed columns
+		cs1 = StructureFactory.createComputedColumn( );
+		cs1.setName( "Month" );//$NON-NLS-1$
+		cs1.setExpression( "row[\"Month\"]" );//$NON-NLS-1$
+		cs1.setDataType( "integer" );//$NON-NLS-1$
+
+		cs2 = StructureFactory.createComputedColumn( );
+		cs2.setName( "Product" );//$NON-NLS-1$
+		cs2.setExpression( "row[\"Product\"]" );//$NON-NLS-1$
+		cs2.setDataType( "string" );//$NON-NLS-1$
+
+		cs3 = StructureFactory.createComputedColumn( );
+		cs3.setName( "Amount" );//$NON-NLS-1$
+		cs3.setExpression( "row[\"Amount\"]" );//$NON-NLS-1$
+		cs3.setDataType( "integer" );//$NON-NLS-1$
+
+		computedSet = dataSetHandle.getPropertyHandle( "computedColumns" );
+		computedSet.addItem( cs1 );
+		computedSet.addItem( cs2 );
+		computedSet.addItem( cs3 );
+		
+		reportDesignHandle.getDataSets( ).add( dataSetHandle );		
+		
+
+
+
+
+		th = elementFactory.newTableItem( null, 3, 1, 1, 1 );
+		th.setWidth( "80%" );
+		th.setProperty( "dataSet", "Data Set" );//$NON-NLS-1$
+
+
+
+
+
+		// Header
+		header = th.getHeader( ).get( 0 );
+
+		tcell = header.getCells( ).get( 0 );
+		lh = elementFactory.newLabel( null );
+		lh.setText( "Col1" );//$NON-NLS-1$
+		tcell.getContent( ).add( lh );
+
+
+
+		tcell = header.getCells( ).get( 1 );
+		lh = elementFactory.newLabel( null );
+		lh.setText( "Col2" );//$NON-NLS-1$
+		tcell.getContent( ).add( lh );
+
+
+		tcell = header.getCells( ).get( 2 );
+		lh = elementFactory.newLabel( null );
+		lh.setText( "Col3" );//$NON-NLS-1$
+		tcell.getContent( ).add( lh );
+
+
+		computedSet = th.getColumnBindings( );
+
+		cs1.setName("Month");
+		cs1.setExpression( "dataSetRow[\"Month\"]" );
+		computedSet.addItem( cs1 );
+		cs2.setName("Product");
+		cs2.setExpression( "dataSetRow[\"Product\"]" );
+		computedSet.addItem( cs2 );
+		cs3.setName("Amount");
+		cs3.setExpression( "dataSetRow[\"Amount\"]" );
+		computedSet.addItem( cs3 );
+
+
+
+
+
+
+
+		detail =  th.getDetail( ).get( 0 );
+		tcell = detail.getCells( ).get( 0 );
+		data = elementFactory.newDataItem( null );
+		data.setResultSetColumn( "Month");
+		tcell.getContent( ).add( data );
+
+		tcell = detail.getCells( ).get( 1 );
+		data = elementFactory.newDataItem( null );
+		data.setResultSetColumn( "Product");
+		tcell.getContent( ).add( data );
+		
+		tcell = detail.getCells( ).get( 2 );
+		data = elementFactory.newDataItem( null );
+		data.setResultSetColumn( "Amount");
+		tcell.getContent( ).add( data );		
+
+
+
+		reportDesignHandle.getBody( ).add( th );]]></method>
+    <data-sources>
+        <script-data-source name="Data Source" id="4"/>
+    </data-sources>
+    <styles>
+        <style name="table-header" id="5">
+            <property name="backgroundColor">#6078BF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="table-footer" id="6">
+            <property name="backgroundColor">#6078BF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="table-detail" id="7">
+            <property name="backgroundColor">#E6ECFF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">x-small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#000080</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="table-group-header-1" id="8">
+            <property name="backgroundColor">#809FFF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="table-group-footer-1" id="9">
+            <property name="backgroundColor">#809FFF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="special-header" id="10">
+            <property name="backgroundColor">#6078BF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">medium</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="crosstab-detail" id="11">
+            <property name="backgroundColor">#E6ECFF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">x-small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#000080</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+        <style name="crosstab-header" id="12">
+            <property name="backgroundColor">#6078BF</property>
+            <property name="fontFamily">"Arial"</property>
+            <property name="fontSize">small</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="paddingTop">0px</property>
+            <property name="paddingLeft">0px</property>
+            <property name="paddingBottom">0px</property>
+            <property name="paddingRight">0px</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+</report>

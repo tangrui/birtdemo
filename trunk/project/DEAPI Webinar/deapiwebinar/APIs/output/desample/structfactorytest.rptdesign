@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.16" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.0.v20080602 Build &lt;2.3.0.v20080604-0630></property>
+    <list-property name="includeScripts">
+        <property>test.js</property>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="srt" id="9">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="isRequired">false</property>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ds" id="5">
+            <list-property name="filter">
+                <structure>
+                    <property name="operator">eq</property>
+                    <expression name="expr">row["COUNTRY"]</expression>
+                    <simple-property-list name="value1">
+                        <value>'USA'</value>
+                    </simple-property-list>
+                </structure>
+            </list-property>
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">Select * from customers</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ds1" id="6">
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">Select * from customers</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ds2" id="7">
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">Select * from orders</property>
+        </oda-data-set>
+        <joint-data-set name="test" id="8">
+            <simple-property-list name="dataSets">
+                <value>ds1</value>
+                <value>ds2</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">left-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">ds1</property>
+                    <property name="rightDataSet">ds2</property>
+                    <expression name="leftExpression">dataSetRow["CUSTOMERNUMBER"]</expression>
+                    <expression name="rightExpression">dataSetRow["CUSTOMERNUMBER"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab" id="2">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="3">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="33"/>
+    </page-setup>
+    <body>
+        <table name="table" id="10">
+            <list-property name="mapRules">
+                <structure>
+                    <expression name="testExpr">row["CustomerCreditLimit"]</expression>
+                    <property name="operator">eq</property>
+                    <simple-property-list name="value1">
+                        <value>0</value>
+                    </simple-property-list>
+                    <text-property name="display">N/A</text-property>
+                </structure>
+            </list-property>
+            <property name="width">100%</property>
+            <property name="dataSet">ds</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CustomerName</property>
+                    <expression name="expression">dataSetRow["CUSTOMERNAME"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">CustomerCity</property>
+                    <expression name="expression">dataSetRow["CITY"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">CustomerCountry</property>
+                    <expression name="expression">dataSetRow["COUNTRY"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">CustomerCreditLimit</property>
+                    <expression name="expression">dataSetRow["CREDITLIMIT"]</expression>
+                </structure>
+            </list-property>
+            <list-property name="sort">
+                <structure>
+                    <expression name="key">if( params["srt"].value){ if( params["srt"].value == 'a' ){	row["CustomerName"]; }else{ row["CustomerCity"];}}</expression>
+                    <property name="direction">desc</property>
+                </structure>
+            </list-property>
+            <list-property name="filter">
+                <structure>
+                    <property name="operator">eq</property>
+                    <expression name="expr">row["CustomerCountry"]</expression>
+                    <simple-property-list name="value1">
+                        <value>'USA'</value>
+                    </simple-property-list>
+                </structure>
+            </list-property>
+            <column id="30">
+                <property name="width">50%</property>
+            </column>
+            <column id="31"/>
+            <column id="32"/>
+            <header>
+                <row id="11">
+                    <cell id="12">
+                        <label name="Label1" id="13">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">2px</property>
+                            <method name="onRender"><![CDATA[var x = 3;]]></method>
+                            <text-property name="text">Customer</text-property>
+                            <structure name="action">
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">c:/test/xyz.rptdesign</property>
+                                <property name="targetWindow">_blank</property>
+                                <property name="targetFileType">report-design</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">order</property>
+                                        <expression name="expression">row["ORDERNUMBER"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <label name="Label2" id="15">
+                            <text-property name="text">City</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <label name="Label3" id="17">
+                            <text-property name="text">Credit Limit</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="18">
+                    <list-property name="highlightRules">
+                        <structure>
+                            <property name="operator">gt</property>
+                            <property name="backgroundColor">blue</property>
+                            <expression name="testExpr">row["CustomerCreditLimit"]</expression>
+                            <simple-property-list name="value1">
+                                <value>100000</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                    <cell id="19">
+                        <data name="data1" id="20">
+                            <structure name="toc">
+                                <expression name="expressionValue">row["CustomerName"]</expression>
+                            </structure>
+                            <property name="resultSetColumn">CustomerName</property>
+                        </data>
+                    </cell>
+                    <cell id="21">
+                        <data name="data2" id="22">
+                            <property name="resultSetColumn">CustomerCity</property>
+                        </data>
+                    </cell>
+                    <cell id="23">
+                        <data name="data3" id="24">
+                            <property name="resultSetColumn">CustomerCreditLimit</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="25">
+                    <cell id="26">
+                        <image name="Logo" id="27">
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">pdf</property>
+                                    <expression name="valueExpr">true</expression>
+                                </structure>
+                            </list-property>
+                            <property name="source">embed</property>
+                            <property name="imageName">mylogo</property>
+                        </image>
+                    </cell>
+                    <cell id="28"/>
+                    <cell id="29"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">mylogo</property>
+            <property name="type">image/jpeg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAHgAA/+4ADkFkb2JlAGTAAAAAAf/bAIQA
+                EAsLCwwLEAwMEBcPDQ8XGxQQEBQbHxcXFxcXHx4XGhoaGhceHiMlJyUjHi8vMzMvL0BAQEBAQEBAQEBA
+                QEBAQAERDw8RExEVEhIVFBEUERQaFBYWFBomGhocGhomMCMeHh4eIzArLicnJy4rNTUwMDU1QEA/QEBA
+                QEBAQEBAQEBA/8AAEQgAUACWAwEiAAIRAQMRAf/EAHgAAQACAwEBAAAAAAAAAAAAAAAFBgIDBAEHAQEA
+                AAAAAAAAAAAAAAAAAAAAEAABAwMCAwUFBQYHAAAAAAABAAIDEQQFIRIxEwZBUWEiFHGBkaHBsTKCIxXR
+                QlKiwhbhcpKyM1OjEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD6AiIgIiICIiAi8QOa4VaQ
+                R3jVB6iIgIi1i4hMphD2mVoqWA6hBsREQEREBERAREQF4o3N5eLF2u86zP0jZ3lUe4u8vdNdfPfJyq0L
+                wSGivZog+hXd/bWdv6iZ4EdaA14lbYZWTRMmjNWSAOafAqg3kkh6bsWyEkyTSuFT2N0V3x4bBj7djiBS
+                NvHxCDrRabq7gtITPO8MjHaVB5bqu3tHCK2HNkIBLhwFUEpmYruXGzR2ZpO4ADs0rr8lrwdpNYY1kV0+
+                smrnEnhUqJzWduBhLSeE8uW74kdgbxWvqTI3MGIsodxbJcs3SOHGjQ0/1IJuTPYuOTlumG7hpqpAEEVG
+                oPBUeHpZ9zax3EFwHyOIqO6vFXaJnLiZHx2NDa+wUQZqnYmQy9WXkpdRkZmqa6Ua7aFb3ODWlx4AVPuX
+                y/1kwmuHQkh1ySCRxo41QWLK9T3Mt8y3xhqxrgKgV3n9itza7RXjTVV3pnp/0rReXTfz3CrGn91SlpmL
+                a7v57GOvMt6h3jtO0/NBIItcc8UrnNjcHFho4DsKzQeoiIMOZGXlm4bxxbXVFWLfGZf113ducQ7ewMFe
+                I5jSf5UQRs5l6iz3KaTyGEgHuY3iferl+nWno/Q8scjbt2qvdDW7RDc3P7xcIx7ANxVqLmggEgE8B3oK
+                X1g2G2fY2kTQ2KJhcGjuJ/wUTd5XJT7Zi9zIR5YwPu+XsUp1Ux13nobVn3i1jB+I1+q29WW8VjjrGyiF
+                GtJJ8SBQn5oPOprp78NjWONXStEjvEBop/uXI7py4bi4rgNLrmdw8v8AC06hbs+wPucTZDg2KNlP8xa3
+                6K7oKP1DD6c4vG8THGCfa91Pop7O4Q5KzhbGaSwCjfHQAhRGeYbjqq2iGpAjbT2Ev+q9zufydrk5IYKt
+                jZQNBBofFBwYu6vsRlY7WQkNc8Mcw8KONAr+qTh7G/y+VZkLwHZGWuLj27fuhXdBy5KTlY+4k/hjcfkv
+                mtpI+1mhu9u5jH6V4EtoSPmvoPUTyzC3RHazb/q0VessSbzpQuY2swkfKzvNKNI/lQW+2njuII54zVkj
+                Q4e9UrF3LbXLZO6cdY2Su95fT7SuzpDL0P6XNXdqYifDUtVevHS/qF3EzjPK5jh31k3U+IQS/St65l1f
+                TyO05LpXV8DVd/TmWuHx313eSE28R3NLuwmugVaZI6w9bbn/AJHs5J9m4F32LvvA6y6dtbceV148zSeL
+                QBRBvu+sL+SUm1aGwtOmhrTxU/i86b3Ez3r27X2wdv7iWt3aKMusZBjemXksHqJWt3v7auPBYWtLboyZ
+                /Azl3v3UZ9EHtpm75+Dv79x/Milj2e97Kj4FFogi2dD3Lv8AskDvhLGz+lEHDi8vdYKWaBzNwJ8zDp5h
+                pVdVjfZXNZiGRrnNiicHENrsa0d/tVovMHj72TmzR+ftI0quq0srWzj5dtGI2+HH4oKqK3fWhI1ELtfw
+                NAWfXDS6WyAFfvinfuLf2KxwY20gupbuNlJptXu+1bZ7S3uSwzRh5jO5hPYUFUuLae56msQWHbCyFzj2
+                AM85VxWOxm7dtG7hupqskHGcZanIfqBbWcN2gns0pX4LbLZWkz98sTXu73AFb0QYsjZG3axoa0dgWSIg
+                1zQxzxOhlG5jxRwK8t7eK2hbBC3bGwUaAtqIIqLAWcOUGRjG1wqQwcNzgQT81FxdOS/3E+7kANsJDM3x
+                J81PirSvEHz2+xs1x1FNataaySlxPg47iVKda2/LisiwflRBzNPw0+xWvkxczm7BzOG+mvxWu8s4L2Aw
+                Tt3NPyKCo5rqO1v8S21jB5x2l9RoNqzup2HoyBje14afaHFylYukMWwPDg6QvBDSTTb4ii7G4KyGOjxz
+                gXRRncCeJdUmvzQRXpz/AGRy6a8rmf8ApzUVi9PFyPT7Rytuzb2baUoiDaiIgIiICIiAiIgIiICIiAiI
+                gIiICIiAiIg//9k=
+            </property>
+        </structure>
+    </list-property>
+</report>

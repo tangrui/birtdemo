@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.10" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.0.0 Build &lt;20060123-1141></property>
+    <property name="units">in</property>
+    <list-property name="configVars">
+        <structure>
+            <property name="name">parameter1</property>
+            <property name="value">1.00%</property>
+        </structure>
+        <structure>
+            <property name="name">Parameter2</property>
+            <property name="value">"parm2"</property>
+        </structure>
+        <structure>
+            <property name="name">Parameter3</property>
+            <property name="value">"10101"</property>
+        </structure>
+        <structure>
+            <property name="name">comboparm</property>
+            <property name="value">val2</property>
+        </structure>
+        <structure>
+            <property name="name">radioparm</property>
+            <property name="value">radio1</property>
+        </structure>
+        <structure>
+            <property name="name">staticlistbox</property>
+            <property name="value">listboxstatic2</property>
+        </structure>
+        <structure>
+            <property name="name">customernumber</property>
+            <property name="value">112</property>
+        </structure>
+        <structure>
+            <property name="name">OrderNumber</property>
+            <property name="value">10278</property>
+        </structure>
+        <structure>
+            <property name="name">parameter6</property>
+            <property name="value">"test"</property>
+        </structure>
+        <structure>
+            <property name="name">parameter7</property>
+            <property name="value">2</property>
+        </structure>
+        <structure>
+            <property name="name">DateParameter</property>
+            <property name="value">Dec 12, 2006 12:00 AM</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="parameter1" id="28">
+            <property name="valueType">static</property>
+            <property name="dataType">decimal</property>
+            <text-property name="promptText">"This i prompt text"</text-property>
+            <property name="allowBlank">false</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">1</property>
+            <structure name="format">
+                <property name="category">Percent</property>
+                <property name="pattern">#,##0.00%</property>
+            </structure>
+        </scalar-parameter>
+        <parameter-group name="ParmGroup1" id="29">
+            <parameters>
+                <scalar-parameter name="Parameter2" id="30">
+                    <property name="valueType">static</property>
+                    <property name="dataType">string</property>
+                    <property name="controlType">text-box</property>
+                    <property name="defaultValue">parm2</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                        <property name="pattern">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+            </parameters>
+        </parameter-group>
+        <scalar-parameter name="Parameter3" id="31">
+            <property name="valueType">dynamic</property>
+            <property name="dataType">string</property>
+            <property name="allowBlank">false</property>
+            <property name="controlType">list-box</property>
+            <property name="dataSetName">ordernumber</property>
+            <expression name="valueExpr">row["ORDERNUMBER"]</expression>
+            <expression name="labelExpr">row["ORDERNUMBER"]</expression>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <property name="defaultValue">10101</property>
+            <structure name="format">
+                <property name="category">></property>
+                <property name="pattern">></property>
+            </structure>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">ORDERNUMBER</property>
+                    <expression name="expression">dataSetRow["ORDERNUMBER"]</expression>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+        <scalar-parameter name="comboparm" id="34">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">false</property>
+            <property name="fixedOrder">true</property>
+            <property name="defaultValue">val2</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">val1</property>
+                    <property name="label">displaytext1</property>
+                </structure>
+                <structure>
+                    <property name="value">val2</property>
+                    <property name="label">displaytestval2</property>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+        <scalar-parameter name="radioparm" id="35">
+            <text-property name="helpText">radiohelp</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="controlType">radio-button</property>
+            <property name="fixedOrder">true</property>
+            <property name="defaultValue">radio1</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">radio1</property>
+                </structure>
+                <structure>
+                    <property name="value">radio2</property>
+                    <property name="label">displaytextcombo2</property>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+        <scalar-parameter name="staticlistbox" id="36">
+            <property name="hidden">false</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="allowBlank">true</property>
+            <property name="allowNull">false</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">listboxstatic1</property>
+                </structure>
+                <structure>
+                    <property name="value">listboxstatic2</property>
+                    <property name="label">displaytextlistbox2</property>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+        <cascading-parameter-group name="iii" id="37">
+            <property name="dataSet">Data Set</property>
+            <parameters>
+                <scalar-parameter name="customernumber" id="38">
+                    <text-property name="helpText">helptext</text-property>
+                    <property name="valueType">dynamic</property>
+                    <text-property name="promptText">enter customer number</text-property>
+                    <property name="allowNull">false</property>
+                    <property name="controlType">list-box</property>
+                    <expression name="valueExpr">row["CUSTOMERNUMBER"]</expression>
+                    <property name="mustMatch">false</property>
+                    <property name="defaultValue">defaultvalue</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                        <property name="pattern">Unformatted</property>
+                    </structure>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">CUSTOMERNUMBER</property>
+                            <expression name="expression">dataSetRow["CUSTOMERNUMBER"]</expression>
+                        </structure>
+                    </list-property>
+                </scalar-parameter>
+                <scalar-parameter name="OrderNumber" id="39">
+                    <property name="valueType">dynamic</property>
+                    <property name="allowNull">false</property>
+                    <property name="controlType">list-box</property>
+                    <expression name="valueExpr">row["ORDERNUMBER"]</expression>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                        <property name="pattern">Unformatted</property>
+                    </structure>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">ORDERNUMBER</property>
+                            <expression name="expression">dataSetRow["ORDERNUMBER"]</expression>
+                        </structure>
+                    </list-property>
+                </scalar-parameter>
+            </parameters>
+        </cascading-parameter-group>
+        <scalar-parameter name="parameter6" id="42">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">test</property>
+            <structure name="format">
+                <property name="category">&lt;</property>
+                <property name="pattern">&lt;</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="parameter7" id="43">
+            <property name="valueType">static</property>
+            <property name="dataType">decimal</property>
+            <property name="allowBlank">false</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <property name="defaultValue">2</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">1</property>
+                </structure>
+                <structure>
+                    <property name="value">2</property>
+                </structure>
+                <structure>
+                    <property name="value">3</property>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+        <scalar-parameter name="DateParameter" id="44">
+            <property name="valueType">static</property>
+            <property name="dataType">dateTime</property>
+            <property name="allowBlank">false</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">12/12/2006</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">select *
+from CLASSICMODELS.ORDERS</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="ordernumber" id="32">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ORDERNUMBER</property>
+                    <property name="displayName">fff</property>
+                </structure>
+            </list-property>
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">select CLASSICMODELS.ORDERS.ORDERNUMBER
+from CLASSICMODELS.ORDERS</property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="6">
+            <property name="width">100%</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">params["parameter1"]</property>
+                    <expression name="expression">params["parameter1"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">ORDERNUMBER</property>
+                    <expression name="expression">dataSetRow["ORDERNUMBER"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <expression name="expression">dataSetRow["CUSTOMERNUMBER"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">STATUS</property>
+                    <expression name="expression">dataSetRow["STATUS"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">params["Parameter3"]</property>
+                    <expression name="expression">params["Parameter3"]</expression>
+                </structure>
+            </list-property>
+            <column id="48"/>
+            <column id="19"/>
+            <column id="20"/>
+            <column id="21"/>
+            <header>
+                <row id="7">
+                    <cell id="45"/>
+                    <cell id="8">
+                        <label id="22">
+                            <text-property name="text">ORDERNUMBER</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <label id="24">
+                            <text-property name="text">CUSTOMERNUMBER</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <label id="26">
+                            <text-property name="text">STATUS</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="11">
+                    <cell id="46">
+                        <data id="49">
+                            <property name="resultSetColumn">params["parameter1"]</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <data id="23">
+                            <property name="resultSetColumn">ORDERNUMBER</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <data id="25">
+                            <property name="resultSetColumn">CUSTOMERNUMBER</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <data id="27">
+                            <property name="resultSetColumn">STATUS</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="15">
+                    <cell id="47"/>
+                    <cell id="16">
+                        <data id="33">
+                            <property name="resultSetColumn">params["Parameter3"]</property>
+                        </data>
+                    </cell>
+                    <cell id="17"/>
+                    <cell id="18"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

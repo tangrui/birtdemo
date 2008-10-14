@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/scriptapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/chartengineapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/com.ibm.icu_3.8.1.v20080402.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/commons-cli-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/coreapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/crosstabcoreapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/dataadapterapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/dataaggregationapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/dteapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/engineapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/flute.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/js.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/modelapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/modelodaapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/odadesignapi.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.apache.commons.codec_1.3.0.v200803061910.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.birt.report.engine.dataextraction_2.3.0.v20080516.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.emf.common_2.4.0.v200806021643.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.emf.ecore.xmi_2.4.0.v200806021643.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.eclipse.emf.ecore_2.4.0.v200806021643.jar"/>
+	<classpathentry kind="lib" path="C:/birt/birt-runtime-2.3RC3/birt-runtime-2_3_0/ReportEngine/lib/org.w3c.css.sac_1.3.0.v200803081811.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

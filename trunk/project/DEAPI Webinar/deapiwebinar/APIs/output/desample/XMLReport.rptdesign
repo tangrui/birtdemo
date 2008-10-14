@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.16" id="1">
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.xml" name="Data Source" id="5">
+            <property name="FILELIST">C:/temp/xmltest2.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.xml.dataSet" name="Data Set" id="6">
+            <property name="dataSource">Data Source</property>
+            <property name="queryText">table0#-TNAME-#table0#:#[/people/person/name]#:#{name;String;}</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab" id="2">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="3">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Master Page" id="4"/>
+    </page-setup>
+    <body>
+        <table id="7">
+            <property name="textAlign">center</property>
+            <property name="width">80%</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Name</property>
+                    <expression name="expression">dataSetRow["name"]</expression>
+                </structure>
+            </list-property>
+            <column id="22"/>
+            <column id="23"/>
+            <column id="24"/>
+            <header>
+                <row id="8">
+                    <cell id="9">
+                        <label id="10">
+                            <text-property name="text">Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="11"/>
+                    <cell id="12"/>
+                </row>
+            </header>
+            <detail>
+                <row id="13">
+                    <cell id="14">
+                        <data id="15">
+                            <property name="resultSetColumn">Name</property>
+                        </data>
+                    </cell>
+                    <cell id="16"/>
+                    <cell id="17"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="18">
+                    <cell id="19"/>
+                    <cell id="20"/>
+                    <cell id="21"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
