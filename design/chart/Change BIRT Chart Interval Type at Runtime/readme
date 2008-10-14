@@ -1,0 +1,7 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/412-change-birt-chart-interval-type-at-runtime/
+
+Report Design that changes chart interval with script
+
+This example report design uses script in the beforeFactory event to change the chart interval type from Days, Weeks, Months, and Years at runtime based on a user parameter.
+
+This example was created wtih BIRT 2.2.0 and uses the sample ClassicModels database.
