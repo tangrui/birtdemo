@@ -1,0 +1,32 @@
+/*
+	The default body layout for all the pages.
+*/
+
+
+
+
+.Detail
+{
+background-color: #BACAE2;
+font-family: Arial;
+font-size: small;
+padding: 0px 0px 0px 0px;
+}
+
+.HeaderFooter
+{
+background-color: #004080;
+font-family: Arial;
+font-size: small;
+font-weight: bold;
+color: #FFFFFF;
+}
+
+.GroupHeader
+{
+background-color: #0080FF;
+font-family: Arial;
+font-size: small;
+font-weight: bold;
+color: #FFFFFF;
+}

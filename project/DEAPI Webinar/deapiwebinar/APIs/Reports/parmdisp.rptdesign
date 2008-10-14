@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.1.r221_v20070924 Build &lt;2.2.0.v20070924-1550></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
+    <parameters>
+        <scalar-parameter name="para1" id="4">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <text-property name="promptText">My Parameter</text-property>
+            <property name="isRequired">false</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">false</property>
+            <property name="fixedOrder">true</property>
+            <property name="defaultValue">anyValue</property>
+            <property name="distinct">false</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">anyValue</property>
+                    <property name="label">My Display Text</property>
+                </structure>
+            </list-property>
+        </scalar-parameter>
+    </parameters>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <text-data id="5">
+            <expression name="valueExpr">params["para1"].displayText</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="6">
+            <expression name="valueExpr">params["para1"].value</expression>
+            <property name="contentType">html</property>
+        </text-data>
+    </body>
+</report>
