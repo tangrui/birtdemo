@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/351-localization-of-birt-reports/
+
+Report and code examples that localize the report labels and chart titles
+Report examples showing how to replace the text from a label with externalized text from a properties file.  One example shows setting the textkey property of the labels and group headers, the second example shows assigning the properties file name and textkey association using the scripting APIs.  A code example is also enclosed showing how to set the resourcePath to the properties file and setting the locale when using the REAPI.
+
+These examples were created with BIRT 2.2.1
