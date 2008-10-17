@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/344-birt-combine-rows/
+
+Simple example to combine table rows using grouping.
+BIRT report example that combines multiple rows of data and displays it on a single line. This is done with grouping, with 'hide details' checked, and aggregations applied at the group level.
+
+This example was created with BIRT 2.2.1

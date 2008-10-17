@@ -1,0 +1,8 @@
+NAME,DESIGNATION,EXCEL,WORD,ACCESS
+Tan,Clerk,X,,
+Tan,Clerk,,X,
+Lim,Sec,X,,
+Lim,Sec,,X,
+Lim,Sec,,,X
+David,admin,X,,
+David,admin,,X,
