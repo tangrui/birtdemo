@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/150-client-side-scripting-in-birt-reports/
+
+Report shows how to invoke client-side scripts
+Often it is necessary to invoke another web based application from a BIRT report based on the data that is available in a table. This report demonstrates the use of the BIRT report text item in order to accomplish this goal. It includes some JavaScript code in the table header. In the detail row of the table, HTML forms is inserted into a text item which calls the scripting code in the table header.
