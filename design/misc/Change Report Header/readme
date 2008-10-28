@@ -1,0 +1,15 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/170-change-report-header/
+
+An approach to controlling what displays as a table header on each page of a report.
+When designing a BIRT report, sometimes it is necessary to change a table header after the first page of the report. The key to doing this is to not use the header row of the table, but use another detail row and set a page break interval on your table.
+
+Then, in script, control the visibility of items in the detail row that is serving as your header.
+
+The attached report design uses the following script events:
+- report's beforeFactory method
+- second detail row's onCreate method
+- table's onPageBreak method
+
+Visibility is set on each row of both grids in the top detail row.
+
+The first time the first detail row is encountered, the first page header is displayed. When the second detail row is created, we set the global variable controling the visibility of the grid header rows to false. Once we have hit the page break interval set on the table, the table, the onPageBreak event is called and we set the global variable to allow the header value for all subsequent pages to be visible. At this point we continue this process until the end of the report has been reached.
