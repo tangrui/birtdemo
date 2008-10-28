@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/228-how-to-calculate-subtotals-per-page/
+
+Add the sum of column per page to the report
+This example shows how to calculate column total per page and eventually the grand total. The page break interval is 10.
