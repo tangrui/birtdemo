@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/184-simple-control-chart-in-birt-report/
+
+Example BIRT design with Control Chart
+This is an example of a BIRT report that contains a Control Chart. The control chart in this example is a line chart that uses multiple Y-axis series for the measure, upper and lower control lines, and the center line(mean). This example was built with BIRT version 2.2.
+
+*Updated - now includes 2.1.3 and 2.2 versions of the report design
