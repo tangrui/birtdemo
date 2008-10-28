@@ -1,0 +1,13 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/202-birt-cross-tab-example-basic-/
+
+Demonstrates how to create a cross tab report in BIRT
+This example demonstrates a BIRT cross tab report design. Also included is a document which describes at a high level the steps required to create the cross tab item.
+This example was created using BIRT 2.2
+
+The sample report covers the following features
+
+    * Data Cube based on a single data set
+    * Cross tab based on a cube
+    * Filters in cross tab
+    * Sorting in cross tab
+    * Grand totals for rows/columns in cross tab
