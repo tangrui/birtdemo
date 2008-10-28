@@ -1,0 +1,18 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/200-gantt-chart-examples/
+
+Demonstrate how to create Gantt Charts in BIRT Reports
+The attachment contains two reports with Gantt Charts. They demonstrate various possibilities you can achieve using the Gantt Series properties.
+
+Note that you will need to update the Flat File DataSources to point to the folder where you unzipped the .csv files, as some of the data is in csv format.
+
+BIRT Gantt Charts allow you to:
+- Precisely position each task, with the possibility of overlapping for tracking progress
+- Give a label to tasks that you can display on either side of the vertical (X) axis
+- Plot tasks progress against a time line
+- Use the palette to control the bar colors or use fixed colors
+- Precisely set the width and style of each bar, with an optional outline
+- Display different markers at the beginning and end of tasks
+- Create the bar labels using the various data available for each series
+- Plot any number of Gantt Series
+
+It's impossible to list all available settings, they can all be set in the chart builder, which gives you an instant preview of their effect.
