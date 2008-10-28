@@ -1,0 +1,27 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/211-birt-cross-tab-examples-advanced-/
+
+Sample examples which demonstrates birt cross tab feature
+
+The examples demonstrate some of the BIRT cross tab features. The following features are covered in the three examples
+
+    * Cross tab with time series
+    *
+
+      Cross tab with image indicator for measures
+    *
+
+      Cross tab with static(fixed) columns
+    *
+
+      Grand totals and sub totals for rows/columns in a cross tab
+    * Data Cube based on multiple data sets
+    *
+
+      Sharing a cube using library
+    *
+
+      Advanced sort and filter
+
+The examples are created using BIRT 2.2.1 release build
+
+Note: Copy the images and library to the resource folder.
