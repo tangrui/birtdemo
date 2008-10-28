@@ -1,0 +1,31 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/176-changing-a-data-set-039-s-query/
+
+This example shows how to change a query associated with a data set based upon a report parameter.
+Some times it is necessary to define or change a query associated with a data set based upon a report parameter or something passed in the reportContext. This example shows two different approaches to changing a query.
+
+Approach 1:In the data set's Property Binding, define a query based upon values passed into the report. In this example, the following script is used to define the query with or without a where clause based upon a parameter value
+
+if(reportContext.getParameterValue("QueryParam") == "false"){
+"select CLASSICMODELS.CUSTOMERS.CUSTOMERNUMBER," +
+"CLASSICMODELS.CUSTOMERS.CUSTOMERNAME," + "CLASSICMODELS.CUSTOMERS.CITY," +
+"CLASSICMODELS.CUSTOMERS.STATE," + "CLASSICMODELS.CUSTOMERS.POSTALCODE," +
+"CLASSICMODELS.CUSTOMERS.COUNTRY " + "from CLASSICMODELS.CUSTOMERS " +
+"where CLASSICMODELS.CUSTOMERS.COUNTRY in ('France', 'Spain', 'Germany')"}
+else {
+"select CLASSICMODELS.CUSTOMERS.CUSTOMERNUMBER," +
+"CLASSICMODELS.CUSTOMERS.CUSTOMERNAME," + "CLASSICMODELS.CUSTOMERS.CITY," +
+"CLASSICMODELS.CUSTOMERS.STATE," + "CLASSICMODELS.CUSTOMERS.POSTALCODE," +
+"CLASSICMODELS.CUSTOMERS.COUNTRY " + "from CLASSICMODELS.CUSTOMERS"}
+
+
+
+Approach 2:
+In the data set's beforeOpen event, define a script that can either modify or define the query. Unlike the first approach, here you have access to the full query and can modify it however you'd like. Keep in mind that you will need to ensure that you are still returning everything necessary for the data set's output columns. This example uses the following script in the beforeOpen event to modify the query:
+//Notice you can access a report parameter value using either:
+// params["CountryParam"].value
+// or
+// reportContext.getParameterValue("CountryParam")
+if(params["CountryParam"].value != null && params["CountryParam"].value != ""){
+ this.queryText = this.queryText +
+    " where CLASSICMODELS.CUSTOMERS.COUNTRY in (" +
+    reportContext.getParameterValue("CountryParam") + ")";
