@@ -1,0 +1,19 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/197-parse-xml-from-database-field-in-birt-report/
+
+Example showing how to parse an XML String that was selected from a database field
+This example selects a String of XML from a database field, and then parses that string into several fields for the report. The code in this example is found in the computed columns of the Data Set as well as an expression of a data element and looks like the code below.
+
+Javascript code to parse the XML:
+
+importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new DOMParser();
+parser.parse(new InputSource(new StringReader(dataSetRow["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('firstname');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;
+
+This example was created with BIRT 2.2
