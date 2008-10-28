@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.0.v20070620 Build &lt;2.2.0.v20070626-1003></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <text-property name="displayName">Blank Report</text-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="6">
+            <text-property name="displayName"></text-property>
+            <property name="odaDriverClass">sun.jdbc.odbc.JdbcOdbcDriver</property>
+            <property name="odaURL">jdbc:odbc:student</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="7">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">firstname</property>
+                    <expression name="expression">importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new  DOMParser();
+parser.parse(new InputSource(new StringReader(row["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('firstname');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">lastname</property>
+                    <expression name="expression">importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new  DOMParser();
+parser.parse(new InputSource(new StringReader(row["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('lastname');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">dob</property>
+                    <expression name="expression">importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new  DOMParser();
+parser.parse(new InputSource(new StringReader(row["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('dob');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">student_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">student_property</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">firstname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">lastname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">dob</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">student_id</property>
+                    <property name="nativeName">student_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">student_property</property>
+                    <property name="nativeName">student_property</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select *
+from student_data</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab-cell" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="48">
+            <property name="width">100%</property>
+            <column id="49"/>
+            <row id="50">
+                <cell id="51">
+                    <label id="54">
+                        <text-property name="text">This is an example of parsing XML that was stored as String/Memo in a database field.  The example creates 3 computed columns on the Data Set.  An alternative is to do the same work in a data elements expression as shown in the last column of the table.</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="52">
+                <cell id="53">
+                    <table id="8">
+                        <property name="height">2.21875in</property>
+                        <property name="width">6.9583333333in</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">student_id</property>
+                                <expression name="expression">dataSetRow["student_id"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">student_property</property>
+                                <expression name="expression">importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new  DOMParser();
+parser.parse(new InputSource(new StringReader(dataSetRow["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('firstname');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">student_property_db</property>
+                                <expression name="expression">dataSetRow["student_property"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">firstname</property>
+                                <expression name="expression">dataSetRow["firstname"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">lastname</property>
+                                <expression name="expression">dataSetRow["lastname"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">dob</property>
+                                <expression name="expression">dataSetRow["dob"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                        </list-property>
+                        <column id="22"/>
+                        <column id="31"/>
+                        <column id="35"/>
+                        <column id="39">
+                            <property name="width">1.5in</property>
+                        </column>
+                        <column id="27"/>
+                        <column id="23">
+                            <property name="width">1.9375in</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr">true</expression>
+                                </structure>
+                            </list-property>
+                        </column>
+                        <header>
+                            <row id="9">
+                                <cell id="10">
+                                    <label id="11">
+                                        <text-property name="text">student_id</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="28">
+                                    <label id="43">
+                                        <text-property name="text">firstname from computed column</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="32">
+                                    <label id="42">
+                                        <text-property name="text">lastname from computed column</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="36">
+                                    <label id="41">
+                                        <text-property name="text">dob from computed column</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="24">
+                                    <label id="40">
+                                        <text-property name="text">student_property from DB</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="12">
+                                    <label id="13">
+                                        <text-property name="text">lastname with scripting (unhide column to see)</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="14">
+                                <property name="height">1.2395833333in</property>
+                                <cell id="15">
+                                    <data id="16">
+                                        <property name="resultSetColumn">student_id</property>
+                                    </data>
+                                </cell>
+                                <cell id="29">
+                                    <data id="45">
+                                        <property name="resultSetColumn">firstname</property>
+                                    </data>
+                                </cell>
+                                <cell id="33">
+                                    <data id="46">
+                                        <property name="resultSetColumn">lastname</property>
+                                    </data>
+                                </cell>
+                                <cell id="37">
+                                    <data id="47">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="resultSetColumn">dob</property>
+                                    </data>
+                                </cell>
+                                <cell id="25">
+                                    <data id="44">
+                                        <property name="resultSetColumn">student_property_db</property>
+                                    </data>
+                                </cell>
+                                <cell id="17">
+                                    <data id="18">
+                                        <property name="resultSetColumn">student_property</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="19">
+                                <cell id="20"/>
+                                <cell id="30"/>
+                                <cell id="34"/>
+                                <cell id="38"/>
+                                <cell id="26"/>
+                                <cell id="21"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="55">
+                <cell id="56">
+                    <label id="57">
+                        <text-property name="text">Javascript code to parse the XML: 
+
+importPackage(Packages.org.apache.xerces.parsers);
+importPackage(Packages.org.xml.sax);
+importPackage(Packages.java.io);
+
+var parser = new  DOMParser();
+parser.parse(new InputSource(new StringReader(dataSetRow["student_property"])));
+var nodelist = parser.getDocument().getElementsByTagName('firstname');
+var entry = nodelist.item(0).getFirstChild().getNodeValue();
+
+entry;</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
