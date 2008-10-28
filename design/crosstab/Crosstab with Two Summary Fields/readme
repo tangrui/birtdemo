@@ -1,0 +1,4 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/207-crosstab-with-two-summary-fields/
+
+Example crosstab with a total value and percentage of total for each summary field
+This is an example of a crosstab that has two summary fields. One summary field holds the SUM and one summary field holds the PERCENTAGE of the total. This example uses the Classic Models database and was created with BIRT 2.2.
