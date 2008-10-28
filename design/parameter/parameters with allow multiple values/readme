@@ -1,0 +1,10 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/204-how-to-use-report-parameters-with-quot-allow-multiple-values-quot-option-and-disable-filters-on-a-dataset-/
+
+When you need to select multiple input values for a parameter is useful to allow the user to select an option which includes all values, avoiding him the entire selection from a long list.
+In this report input parameter are:
+- customer
+- country
+
+Both parameters allow to select multiple values.
+By selecting 0 (zero) you implicitly select all values of a parameter, but in that case filter dataset must be disabled.
+This task is done in report's beforeFactory phase.
