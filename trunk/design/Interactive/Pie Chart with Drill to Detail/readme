@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/209-birt-pie-chart-with-drill-to-detail/
+
+Example report that lets a user drill to a detail report through a pie chart.
+This example works from the Classic Models database and presents a pie chart showing the percentage of employees in each country. The user can click on a pie piece and drill to a detailed report for that country.
+
+This example was created with BIRT 2.2.
