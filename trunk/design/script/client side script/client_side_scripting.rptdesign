@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.1.0.N20060615-1725 Build &lt;20060620-1643></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">Training.rptlibrary</property>
+            <property name="namespace">Training</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Customers" id="33">
+            <text-property name="displayName">Data Source</text-property>
+            <property name="odaDriverClass">org.eclipse.birt.report.data.oda.sampledb.Driver</property>
+            <property name="odaURL">jdbc:classicmodels:sampledb</property>
+            <property name="odaUser">ClassicModels</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Customers" id="4"
+ extends="Training.Customers">
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CUSTOMERNUMBER</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CUSTOMERNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PHONE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">STATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Customers</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <property name="nativeName">CUSTOMERNUMBER</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CUSTOMERNAME</property>
+                    <property name="nativeName">CUSTOMERNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PHONE</property>
+                    <property name="nativeName">PHONE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">STATE</property>
+                    <property name="nativeName">STATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select CLASSICMODELS.CUSTOMERS.CUSTOMERNUMBER,
+CLASSICMODELS.CUSTOMERS.CUSTOMERNAME, 
+CLASSICMODELS.CUSTOMERS.PHONE,
+CLASSICMODELS.CUSTOMERS.STATE
+from CLASSICMODELS.CUSTOMERS
+where CLASSICMODELS.CUSTOMERS.COUNTRY = 'USA'
+order by 1</property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="Customers" id="5">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="width">100%</property>
+            <property name="dataSet">Customers</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CUSTOMERNUMBER</property>
+                    <expression name="expression">dataSetRow["CUSTOMERNUMBER"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">CUSTOMERNAME</property>
+                    <expression name="expression">dataSetRow["CUSTOMERNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PHONE</property>
+                    <expression name="expression">dataSetRow["PHONE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">STATE</property>
+                    <expression name="expression">dataSetRow["STATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="29"/>
+            <column id="18"/>
+            <column id="19"/>
+            <column id="20"/>
+            <column id="37"/>
+            <header>
+                <row id="6">
+                    <property name="fontWeight">bold</property>
+                    <cell id="26">
+                        <label id="30">
+                            <text-property name="text">Customer #</text-property>
+                        </label>
+                    </cell>
+                    <cell id="7">
+                        <label id="21">
+                            <text-property name="text">Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="8">
+                        <label id="23">
+                            <text-property name="text">STATE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <text name="Scripts" id="32">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<html>
+<head/>
+<body>
+<script>
+function newSrc(onum)
+{
+   alert ("Call " + onum);
+}
+</script>
+</body>
+</html>]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="34"/>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <property name="fontSize">x-small</property>
+                    <cell id="27">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <data id="31">
+                            <property name="resultSetColumn">CUSTOMERNUMBER</property>
+                        </data>
+                    </cell>
+                    <cell id="11">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <data id="22">
+                            <property name="resultSetColumn">CUSTOMERNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <data id="24">
+                            <property name="resultSetColumn">STATE</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <property name="textAlign">center</property>
+                        <text name="Form" id="25">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<form>
+<input onClick="newSrc(
+'<VALUE-OF>row["CUSTOMERNAME"]</VALUE-OF>' + ' [Cust #: ' +
+'<VALUE-OF>row["CUSTOMERNUMBER"]</VALUE-OF>' + '] at ' + 
+'(<VALUE-OF>row["PHONE"]</VALUE-OF>)'
+)" 
+value="Invoke Something" name="SomeAction" type="button">
+</input>
+</form>
+]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="35">
+                        <text id="38">
+                            <property name="contentType">html</property>
+                            <text-property name="content"><![CDATA[<a href="mailto:support@actuate.com">Email Actuate Support</a>]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="14">
+                    <cell id="28"/>
+                    <cell id="15"/>
+                    <cell id="16"/>
+                    <cell id="17"/>
+                    <cell id="36"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
