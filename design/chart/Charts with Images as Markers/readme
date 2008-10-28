@@ -1,0 +1,6 @@
+http://www.birt-exchange.com/devshare/designing-birt-reports/208-birt-charts-with-images-as-markers/
+
+Demonstrates the use of chart scripting to specify images as markers
+This BIRT report was built using v2.2.1 released. It uses chart scripting to specify images for a bar chart based on the category values. It also uses provides mouse overs for each bar and image that displays a description of the category. The images need to be placed in c:\ on a Windows machine. This report has only been tested on Windows. The zip file contains the report design and the image files. The data for this report is based on the Classic Models sample database.
+
+Thanks to David Michonneau @ Actuate for his help with this report.
