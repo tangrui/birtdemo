@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.2.1.r221_v20070924 Build &lt;2.2.0.v20070924-1550></property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.1.v20080911 Build &lt;2.3.1.v20080922-1151></property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
@@ -295,7 +295,9 @@ from orderdetails</property>
             <column id="37"/>
             <column id="38"/>
             <column id="39"/>
-            <column id="40"/>
+            <column id="40">
+                <property name="pageBreakAfter">always</property>
+            </column>
             <column id="41"/>
             <header>
                 <row id="9">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.14" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.2.0.v20070620 Build &lt;2.2.0.v20070626-1003></property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.1.v20080911 Build &lt;2.3.1.v20080922-1151></property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
@@ -506,12 +506,14 @@ San Francisco, CA 94107<BR>
                 <cell id="123"/>
             </row>
         </grid>
-        <extended-item extensionName="Crosstab" id="258">
+        <extended-item extensionName="Crosstab" extensionVersion="2.3.0" id="258">
             <property name="measures">
                 <extended-item extensionName="MeasureView" id="271">
                     <property name="measure">ORDERTOTAL</property>
                     <property name="detail">
-                        <extended-item extensionName="CrosstabCell" id="272">
+                        <extended-item extensionName="AggregationCell" id="299">
+                            <property name="aggregationOnRow">customerRegion/CITY</property>
+                            <property name="aggregationOnColumn">product/PRODUCTLINE</property>
                             <property name="content">
                                 <data name="ORDERTOTAL" id="274">
                                     <property name="resultSetColumn">ORDERTOTAL</property>
@@ -589,6 +591,8 @@ San Francisco, CA 94107<BR>
                                             <property name="direction">desc</property>
                                         </sort-element>
                                     </property>
+                                    <property name="pageBreakBefore">auto</property>
+                                    <property name="pageBreakAfter">always</property>
                                     <property name="member">
                                         <extended-item extensionName="CrosstabCell" id="264">
                                             <property name="content">
@@ -658,7 +662,9 @@ San Francisco, CA 94107<BR>
                                         <filter-condition-element>
                                             <expression name="expr">data["PRODUCTLINE"]</expression>
                                             <property name="operator">ne</property>
-                                            <expression name="value1">"Classic Cars"</expression>
+                                            <simple-property-list name="value1">
+                                                <value>"Classic Cars"</value>
+                                            </simple-property-list>
                                         </filter-condition-element>
                                     </property>
                                     <property name="member">
@@ -675,6 +681,9 @@ San Francisco, CA 94107<BR>
                         </extended-item>
                     </property>
                 </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="298"/>
             </property>
             <property name="cube">salesCube</property>
             <list-property name="boundDataColumns">
